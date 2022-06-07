@@ -1,4 +1,4 @@
-﻿// Лекция 7. Рекурсия (7.6.22) InOrder Traversal
+﻿// Лекция 7. Рекурсия (7.6.22) Порядок выполнения мат.действий в массиве InOrder Traversal
 Console.Clear();
 string emp = String.Empty;
 string [] tree = {emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3"};
