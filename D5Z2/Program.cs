@@ -5,14 +5,48 @@
 // В результате показать координаты, которые получатся.
 // при k = 2 получаем "(0,0) (4,0) (4,4) (0,4)"
 Console.Clear();
-string X(int k1, int k2, int b1, int b2)
+int[,] FillArray2(int x, int y)
+{
+    int[,] array = new int[x, y];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0, 4);
+        }
+    }
+    return array;
+}
+
+void PrintArray2(int[,] tabl)
+{
+    for (int i = 0; i < tabl.GetLength(0); i++)
+    {
+        for (int j = 0; j < tabl.GetLength(1); j++)
+        {
+            Console.Write($"{tabl[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void Scale(int[,] array, int k)
 {
     string result = string.Empty;
-    int x = 0;
-    int y = 0;
-    x = (b2 - b1) / (k1 - k2);
-    y = (k1 * (b2 - b1) / (k1 - k2)) + b1;
-    result = $"({x}, {y})";
-    return result;
+    int[,] array2 = new int[array.GetLength(0), array.GetLength(1)];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array2[i, j] = array[i, j] * k;
+            Console.Write($"{array2[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+
 }
-Console.WriteLine(X(10, 15, 40, 50));
+
+int[,] newarray = FillArray2(4, 2);
+PrintArray2(newarray);
+Console.WriteLine();
+Scale(newarray, 2);
